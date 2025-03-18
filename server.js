@@ -185,10 +185,11 @@ const wss2 = connectWebSocket(
     "wss://stream.binance.com:9443/ws/btcusdt@kline_5m",
     async (event) => {
         if (event) {
-            try {
+            try { 
                 const data = JSON.parse(event);
                 const k_value = data.k;
                 const open_price = parseFloat(k_value.o).toFixed(2);
+                console.log(open_price);
 
                 if (previous_price2 == "0") {
                     previous_price2 = open_price;
