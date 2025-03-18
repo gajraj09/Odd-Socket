@@ -256,7 +256,7 @@ const callServer2 = () => {
         } catch (error) {
             console.error('Error calling Server 2:', error.message);
         }
-    }, 60000); // 60000 milliseconds = 1 minute
+    }, 600000); // 60000 milliseconds = 1 minute
 };
 
 // Start the timer to update time and manage the start condition
@@ -268,6 +268,6 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT ||3000;
 server.listen(PORT, () => {
     setInterval(timer, 1000);
-    //  callServer2();
+     callServer2();
     console.log(`Server is running on port ${PORT}`);
 });
