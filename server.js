@@ -189,7 +189,7 @@ const wss2 = connectWebSocket(
                 const data = JSON.parse(event);
                 const k_value = data.k;
                 const open_price = parseFloat(k_value.o).toFixed(2);
-                console.log(open_price);
+                // console.log(open_price);
 
                 if (previous_price2 == "0") {
                     previous_price2 = open_price;
@@ -199,6 +199,7 @@ const wss2 = connectWebSocket(
                 if (time % 10 == 5 && second > 2 && clock2 == 0) {
                     clock2 = 1;
                     current_price2 = open_price;
+                    console.log(open_price);
                     if (current_price2 != previous_price2) {
                         trend2 = trend2.concat(current_price2 > previous_price2 ? "H" : "L");
                         console.log("Odd Current price:", current_price2);
