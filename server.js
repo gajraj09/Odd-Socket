@@ -171,16 +171,16 @@ connectWebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1m", async (eve
     const { minute, second } = state.time;
     const now = Date.now();
 
-    if (minute % 10 >= 4 && state.clocks.clock1m !== 0) {
+    if (minute % 10 >= 8 && state.clocks.clock1m !== 0) {
       state.clocks.clock1m = 0;
     }
 
-    if (minute % 10 === 0 && second >= 3 && state.clocks.clock1m === 0) {
+    if (minute % 10 === 5 && second >= 3 && state.clocks.clock1m === 0) {
       state.clocks.clock1m = 1;
       state.prices.prev1m = open;
     }
 
-    if (minute % 10 === 1 && second >= 3 && state.clocks.clock1m === 1) {
+    if (minute % 10 === 6 && second >= 3 && state.clocks.clock1m === 1) {
       state.clocks.clock1m = 2;
       state.prices.curr1m = open;
 
@@ -212,7 +212,7 @@ connectWebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_5m", async (eve
       state.prices.prev10m = open;
     }
 
-    if (minute % 10 === 0 && second >= 3 && state.clocks.clock10m === 0 && now - lockTime10m > 8000) {
+    if (minute % 10 === 5 && second >= 3 && state.clocks.clock10m === 0 && now - lockTime10m > 8000) {
       state.clocks.clock10m = 1;
       state.prices.curr10m = open;
       lockTime10m = now;
@@ -232,7 +232,7 @@ connectWebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_5m", async (eve
       }
     }
 
-    if (minute % 10 >= 2) {
+    if (minute % 10 >= 8) {
       state.clocks.clock10m = 0;
     }
   } catch (error) {
