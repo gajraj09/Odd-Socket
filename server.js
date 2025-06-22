@@ -6,7 +6,7 @@ const path = require("path");
 const axios = require("axios");
 require("dotenv").config();
 
-const Trend = require("./models/Trend");
+const Trend = require("./models/OddTrend");
 
 const app = express();
 const cors = require("cors");
