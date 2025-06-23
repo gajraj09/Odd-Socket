@@ -106,7 +106,7 @@ async function fetchAllPrevious10mTrends() {
       }
     }
 
-    console.log("Loaded previous 10m trends:", allPast10mTrends.length);
+    // console.log("Loaded previous 10m trends:", allPast10mTrends.length);
   } catch (err) {
     console.error("Error fetching all 10m trends:", err);
   }
