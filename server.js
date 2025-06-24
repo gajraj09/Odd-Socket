@@ -98,11 +98,11 @@ async function fetchLatestTrends() {
 
 async function fetchAllPrevious10mTrends() {
   try {
-    const trends = await Trend.find({ trend: { $exists: true } }).sort({ date: 1 });
+        const trends = await Trend.find({ trend: { $exists: true },trend2: { $exists: true } }).sort({ date: 1 });
 
     for (const t of trends) {
-      if (t.date && t.trend) {
-        allPast10mTrends.push({ date: t.date, trend: t.trend });
+      if (t.date && t.trend && t.trend2) {
+        allPast10mTrends.push({ date: t.date, trend: t.trend,trend2: t.trend2   });
       }
     }
 
